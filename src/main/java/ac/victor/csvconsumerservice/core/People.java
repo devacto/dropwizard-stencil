@@ -9,11 +9,15 @@ public class People {
         personList = new ArrayList<Person>();
     }
 
-    private void addPerson(Person additionalPerson) {
+    public void addPerson(Person additionalPerson) {
         personList.add(additionalPerson);
     }
 
     public ArrayList<Person> getPersonList() {
         return personList;
+    }
+
+    public Person getPerson(int personIndex) {
+        return personList.get(personIndex);
     }
 }
