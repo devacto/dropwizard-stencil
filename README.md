@@ -9,3 +9,7 @@ Test application using Dropwizard and Gradle. Taking CSV input and producing JSO
 ##### To run the web service
 
 `gradle run`
+
+#### To get persons
+
+After the above `gradle run`, open up your browser and type `http://localhost:8080/people`
