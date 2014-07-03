@@ -1,31 +1,31 @@
 package ac.victor.csvconsumerservice;
 
 import ac.victor.csvconsumerservice.health.TemplateHealthCheck;
-import ac.victor.csvconsumerservice.resources.AIAConsumerServiceResource;
+import ac.victor.csvconsumerservice.resources.CSVConsumerServiceResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
-public class AIAConsumerServiceApplication extends Application<AIAConsumerServiceConfiguration> {
+public class CSVConsumerServiceApplication extends Application<CSVConsumerServiceConfiguration> {
     @Override
     public String getName() {
         return "AIA Consumer Service Application";
     }
 
     @Override
-    public void initialize(Bootstrap<AIAConsumerServiceConfiguration> bootstrap) {
+    public void initialize(Bootstrap<CSVConsumerServiceConfiguration> bootstrap) {
         // nothing to do at the moment
     }
 
     @Override
-    public void run(AIAConsumerServiceConfiguration configuration, Environment environment) throws Exception {
-        final AIAConsumerServiceResource resource = new AIAConsumerServiceResource(configuration.getTemplate(), configuration.getDefaultname());
+    public void run(CSVConsumerServiceConfiguration configuration, Environment environment) throws Exception {
+        final CSVConsumerServiceResource resource = new CSVConsumerServiceResource(configuration.getTemplate(), configuration.getDefaultname());
         final TemplateHealthCheck healthCheck = new TemplateHealthCheck(configuration.getTemplate());
         environment.healthChecks().register("templateHealthCheck", healthCheck);
         environment.jersey().register(resource);
     }
 
     public static void main(String[] args) throws Exception {
-        new AIAConsumerServiceApplication().run(args);
+        new CSVConsumerServiceApplication().run(args);
     }
 }

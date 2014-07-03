@@ -13,13 +13,13 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Path("hello-world")
 @Produces(MediaType.APPLICATION_JSON)
-public class AIAConsumerServiceResource {
+public class CSVConsumerServiceResource {
     private final String template;
     private final String defaultName;
 
     private final AtomicLong counter;
 
-    public AIAConsumerServiceResource(String template, String defaultName) {
+    public CSVConsumerServiceResource(String template, String defaultName) {
         this.template = template;
         this.defaultName = defaultName;
         this.counter = new AtomicLong();
