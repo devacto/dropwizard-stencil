@@ -6,3 +6,13 @@ server:
   applicationConnectors:
     - type: http
       port: 0
+  adminConnectors:
+    - type: http
+      port: 0
+
+logging:
+  level: INFO
+  loggers:
+    ac.victor.csvconsumerservice: DEBUG
+  appenders:
+    type: console

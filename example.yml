@@ -5,4 +5,13 @@ defaultname: Stranger
 server:
   applicationConnectors:
     - type: http
-      port: 0
+      port: 8080
+  adminConnectors:
+    - type: http
+      port: 8081
+
+logging:
+  loggers:
+    ac.victor.csvconsumerservice: DEBUG
+  appenders:
+    - type: console
