@@ -1,0 +1,46 @@
+package ac.victor.csvconsumerservice.test;
+
+import ac.victor.csvconsumerservice.CSVConsumerServiceApplication;
+import ac.victor.csvconsumerservice.CSVConsumerServiceConfiguration;
+import com.google.common.io.CharStreams;
+import com.google.common.io.Resources;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+import io.dropwizard.testing.junit.DropwizardAppRule;
+import org.junit.ClassRule;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class BaseAcceptanceTest {
+
+    @ClassRule
+    public static final DropwizardAppRule<CSVConsumerServiceConfiguration> RULE =
+            new DropwizardAppRule<>(CSVConsumerServiceApplication.class, resourceFilePath("test-config.yml"));
+
+    protected WebResource.Builder webResourceBuilder(String path, Object... arguments) {
+        Client client = new Client();
+        return client.resource(String.format("http://localhost:%d%s", RULE.getLocalPort(), String.format(path, arguments)))
+                .accept("application/json")
+                .type("application/json");
+    }
+
+    private static String resourceFilePath(String resourceClassPathLocation) {
+        try {
+            return new File(Resources.getResource(resourceClassPathLocation).toURI()).getAbsolutePath();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    protected String response(ClientResponse response) {
+        try {
+            return CharStreams.toString(new InputStreamReader(response.getEntityInputStream()));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
