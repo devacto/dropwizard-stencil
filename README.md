@@ -12,6 +12,7 @@ Dropwizard is a microservice framework. This stencil shows various configuration
 * MongoDB database connector (optional)
 * Groovy console
 * Precommit
+* Logs
 
 ### Libraries
 
@@ -32,7 +33,7 @@ Dropwizard is a microservice framework. This stencil shows various configuration
 
 ### To do
 
-* Something
+* Add banner
 
 ### How to use
 
