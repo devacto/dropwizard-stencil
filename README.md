@@ -4,7 +4,7 @@ Dropwizard is a microservice framework. This stencil shows various configuration
 
 ### Principle
 
-This stencil should be really small because it is a microservice.
+This stencil should be really small because it is a microservice. But it should have all the features to be production-ready.
 
 ### Features
 

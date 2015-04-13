@@ -62,6 +62,7 @@ dependencies {
     compile "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:${jacksonVersion}"
     compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:${jacksonVersion}"
     compile 'org.ostermiller:utils:1.07.00'
+    compile 'com.sun.jersey:jersey-client:1.19'
 
     testCompile "io.dropwizard:dropwizard-testing:${dropwizardVersion}"
     testCompile "junit:junit:4.11"
@@ -197,10 +198,6 @@ task codeCoverage {
         out.withStyle(Style.Info).println(coverageStr)
         out.println(s)
     }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
 }
 
 test {
