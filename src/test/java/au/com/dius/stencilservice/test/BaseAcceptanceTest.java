@@ -1,7 +1,7 @@
 package au.com.dius.stencilservice.test;
 
 import au.com.dius.stencilservice.StencilService;
-import au.com.dius.stencilservice.CSVConsumerServiceConfiguration;
+import au.com.dius.stencilservice.StencilServiceConfiguration;
 import com.google.common.io.CharStreams;
 import com.google.common.io.Resources;
 import com.sun.jersey.api.client.Client;
@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 public class BaseAcceptanceTest {
 
     @ClassRule
-    public static final DropwizardAppRule<CSVConsumerServiceConfiguration> RULE =
+    public static final DropwizardAppRule<StencilServiceConfiguration> RULE =
             new DropwizardAppRule<>(StencilService.class, resourceFilePath("test-config.yml"));
 
     protected WebResource.Builder webResourceBuilder(String path, Object... arguments) {

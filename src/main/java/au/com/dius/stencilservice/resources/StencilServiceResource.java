@@ -11,15 +11,15 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Path("hello-world")
+@Path("hello")
 @Produces(MediaType.APPLICATION_JSON)
-public class CSVConsumerServiceResource {
+public class StencilServiceResource {
     private final String template;
     private final String defaultName;
 
     private final AtomicLong counter;
 
-    public CSVConsumerServiceResource(String template, String defaultName) {
+    public StencilServiceResource(String template, String defaultName) {
         this.template = template;
         this.defaultName = defaultName;
         this.counter = new AtomicLong();
