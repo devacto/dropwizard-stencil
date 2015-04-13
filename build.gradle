@@ -38,6 +38,13 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 version = "0.1.${buildNumber()}"
 
+// Project details
+// group = "au.com.ioof.ri"
+// mainClassName = "au.com.ioof.ri.reportingservice.ReportingService"
+// description = "Reporting Service"
+
+def configuration = "conf/stencil-service.yml"
+
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 // The main class of the application
