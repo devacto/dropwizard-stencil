@@ -1,8 +1,39 @@
-apply plugin: 'java'
-apply plugin: 'gradle-one-jar'
-apply plugin: 'application'
+import groovy.json.JsonBuilder
 
-// Use Java 8 by default
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "com.google.guava:guava:17.0"
+        classpath "com.tkruse.gradle:gradle-groovysh-plugin:1.0.4"
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.1.1'
+        classpath 'org.yaml:snakeyaml:1.14'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'application'
+apply plugin: 'codenarc'
+apply plugin: 'checkstyle'
+apply plugin: 'jacoco'
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'maven-publish'
+apply plugin: 'com.github.tkruse.groovysh'
+
+def buildNumber() {
+    def buildNum = '0'
+    if (hasProperty('buildNumber')) {
+        buildNum = buildNumber
+    }
+    buildNum
+}
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 version = '1.0'
@@ -50,17 +81,12 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
-// Configure the oneJar task
-task oneJar(type: OneJar) {
-    mainClass = mainClassName
+shadowJar {
+    mergeServiceFiles()
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
-}
-
-artifacts {
-    oneJar
 }
 
 test {

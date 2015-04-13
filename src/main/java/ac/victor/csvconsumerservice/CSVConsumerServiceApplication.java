@@ -10,6 +10,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
 public class CSVConsumerServiceApplication extends Application<CSVConsumerServiceConfiguration> {
+
     @Override
     public String getName() {
         return "AIA Consumer Service Application";
