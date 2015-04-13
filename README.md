@@ -2,52 +2,38 @@
 
 Dropwizard is a microservice framework. This stencil shows various configurations and libraries we added to Dropwizard.
 
+### Principle
+
+This stencil should be really small because it is a microservice.
+
 ### Features
 
-* Code coverage
-* Health check page
-* Info page
-* Docker
-* MySQL database connector (optional)
-* MongoDB database connector (optional)
-* Groovy console
-* Precommit
-* Logs
+* Source code and tests are written in Groovy.
+* Gradle is used as a build tool.
+* Code quality checks using Checkstyle and CodeNarc.
+* Runs unit tests.
+* Code coverage are being measured, and we know how it changes (up or down).
+* Has precommit which checks code quality, runs tests and produces code coverage reports.
+* Has a banner.
+* Has health check page (/health).
+* Has info page that shows version, etc. (/info).
+* Has Groovy console to aid development.
+* Has centralised logging using Log4J or SLF4J
+* Has Mockito and Hamcrest to assist testing.
+* Google Guice for dependency injection.
+* Package into RPM.
+* RPM then will be put into Docker image.
 
-### Libraries
+### Later
 
-* Dropwizard
-* Gradle
-* Groovy
-* Codenarc
-* Checkstyle
-* Jacoco
-* Retrofit
-* RxJava
-* Google Guice
-* Shadow
-* Mockito
-* Hamcrest
-* PactJvm
-* Hystrix
-
-### To do
-
-* Add banner
+Other functionalities such as PactJVM, Retrofit, RxJava, Hibernate, Flyway, MongoDB connections will be added later.
 
 ### How to use
 
-##### To build the code
+##### To run the webservice
 
-`gradle build --refresh-dependencies`
-
-##### To run the web service
-
-`gradle run`
-
-#### To get persons
-
-After the above `gradle run`, open up your browser and type `http://localhost:8080/people`
+`./gradlew installApp`
+`./build/install/dropwizard-stencil/bin/dropwizard-stencil server conf/stencil-service.yml`
 
 ### License
 
