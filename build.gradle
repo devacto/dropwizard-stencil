@@ -78,6 +78,14 @@ dependencies {
     testCompile 'com.cyrusinnovation:mockito-groovy-support:1.3'
 }
 
+tasks.withType(GroovyCompile) {
+    groovyOptions.optimizationOptions.indy = true
+}
+
+checkstyleMain {
+    classpath += configurations.compile
+}
+
 shadowJar {
     mergeServiceFiles()
 }
