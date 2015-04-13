@@ -1,4 +1,4 @@
-package au.com.dius.service.core;
+package au.com.dius.stencilservice.core;
 
 import java.util.ArrayList;
 

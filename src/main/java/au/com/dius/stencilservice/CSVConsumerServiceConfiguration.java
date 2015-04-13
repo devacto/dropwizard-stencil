@@ -1,4 +1,4 @@
-package au.com.dius.service;
+package au.com.dius.stencilservice;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;

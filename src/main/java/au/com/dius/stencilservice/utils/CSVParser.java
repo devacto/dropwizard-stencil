@@ -1,7 +1,7 @@
-package au.com.dius.service.utils;
+package au.com.dius.stencilservice.utils;
 
-import au.com.dius.service.core.People;
-import au.com.dius.service.core.Person;
+import au.com.dius.stencilservice.core.People;
+import au.com.dius.stencilservice.core.Person;
 import au.com.bytecode.opencsv.CSVReader;
 
 import java.io.FileNotFoundException;

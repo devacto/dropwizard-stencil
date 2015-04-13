@@ -1,7 +1,7 @@
-package au.com.dius.service.resources;
+package au.com.dius.stencilservice.resources;
 
-import au.com.dius.service.core.People;
-import au.com.dius.service.core.Person;
+import au.com.dius.stencilservice.core.People;
+import au.com.dius.stencilservice.core.Person;
 import com.codahale.metrics.annotation.Timed;
 import io.dropwizard.hibernate.UnitOfWork;
 

@@ -40,7 +40,7 @@ version = "0.1.${buildNumber()}"
 
 // Project details
 group = "au.com.dius"
-mainClassName = "au.com.dius.service.StencilService"
+mainClassName = "au.com.dius.stencilservice.StencilService"
 description = "Stencil Service"
 
 def configuration = "conf/stencil-service.yml"

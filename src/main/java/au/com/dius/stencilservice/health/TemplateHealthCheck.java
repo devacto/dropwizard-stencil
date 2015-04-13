@@ -1,4 +1,4 @@
-package au.com.dius.service.health;
+package au.com.dius.stencilservice.health;
 
 import com.codahale.metrics.health.HealthCheck;
 

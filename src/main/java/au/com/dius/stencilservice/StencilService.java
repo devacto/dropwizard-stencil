@@ -1,10 +1,10 @@
-package au.com.dius.service;
+package au.com.dius.stencilservice;
 
-import au.com.dius.service.core.People;
-import au.com.dius.service.health.TemplateHealthCheck;
-import au.com.dius.service.resources.CSVConsumerServiceResource;
-import au.com.dius.service.resources.PeopleResource;
-import au.com.dius.service.utils.CSVParser;
+import au.com.dius.stencilservice.core.People;
+import au.com.dius.stencilservice.health.TemplateHealthCheck;
+import au.com.dius.stencilservice.resources.CSVConsumerServiceResource;
+import au.com.dius.stencilservice.resources.PeopleResource;
+import au.com.dius.stencilservice.utils.CSVParser;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;

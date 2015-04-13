@@ -1,4 +1,4 @@
-package au.com.dius.service.core;
+package au.com.dius.stencilservice.core;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;

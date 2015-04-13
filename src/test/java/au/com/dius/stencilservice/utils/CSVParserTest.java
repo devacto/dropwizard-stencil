@@ -1,6 +1,6 @@
-package au.com.dius.service.utils;
+package au.com.dius.stencilservice.utils;
 
-import au.com.dius.service.core.People;
+import au.com.dius.stencilservice.core.People;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 import org.junit.Test;

@@ -1,7 +1,7 @@
-package au.com.dius.service.test;
+package au.com.dius.stencilservice.test;
 
-import au.com.dius.service.StencilService;
-import au.com.dius.service.CSVConsumerServiceConfiguration;
+import au.com.dius.stencilservice.StencilService;
+import au.com.dius.stencilservice.CSVConsumerServiceConfiguration;
 import com.google.common.io.CharStreams;
 import com.google.common.io.Resources;
 import com.sun.jersey.api.client.Client;
