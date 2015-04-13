@@ -2,7 +2,6 @@ package au.com.dius.stencilservice;
 
 import au.com.dius.stencilservice.health.TemplateHealthCheck;
 import au.com.dius.stencilservice.resources.StencilServiceResource
-import com.fasterxml.jackson.databind.ObjectMapper
 import groovy.util.logging.Slf4j;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -30,12 +29,4 @@ class StencilService extends Application<StencilServiceConfiguration> {
         new StencilService().run(args);
     }
     
-    private void setupInfoResource() {
-        try {
-            Map hashMap = new ObjectMapper().readValue(getClass().getResourceAsStream('/info.json'), HashMap)
-        } catch (IOException e) {
-            log.warn('Could not load application info', e)
-        }
-    }
-
 }
