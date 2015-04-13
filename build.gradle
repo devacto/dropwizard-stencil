@@ -55,13 +55,8 @@ task oneJar(type: OneJar) {
     mainClass = mainClassName
 }
 
-// Configure the run task to start the Dropwizard service
-run {
-    args 'server', 'example.yml'
-}
-
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.4'
+    gradleVersion = '2.3'
 }
 
 artifacts {
