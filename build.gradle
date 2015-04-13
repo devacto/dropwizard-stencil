@@ -86,8 +86,124 @@ checkstyleMain {
     classpath += configurations.compile
 }
 
+//compile the java classes with the groovy compiler which cross compiles both
+sourceSets.main.groovy.srcDirs += ["src/main/java"]
+
+jar {
+    manifest {
+        attributes("Implementation-Title": 'Stencil Service',
+                "Implementation-Version": version,
+                "Class-Path": (configurations.compile + configurations.runtime).collect { it.getName() }.join(' ') ,
+                "Main-Class": mainClassName
+        )
+    }
+}
+
 shadowJar {
     mergeServiceFiles()
+}
+
+publishing {
+    publications {
+        shadow(MavenPublication) {
+            from components.java
+            artifact shadowJar
+        }
+    }
+}
+
+build.dependsOn shadowJar
+
+test {
+    if (project.hasProperty("dropwizardTestConfig")) {
+        systemProperties["dropwizard.test.config"] = dropwizardTestConfig
+    }
+}
+
+runShadow {
+    args 'server', 'conf/stencil-service.yml'
+}
+
+task preCommit(dependsOn: ['check', 'test', 'jacocoTestReport', 'codeCoverage']) {
+    description 'Runs all pre-commit checks. Must be run before pushing.'
+}
+
+check.dependsOn.remove(test)
+
+groovysh {
+
+    // groovyVersion determines the features of the shell and buildShell tasks
+    groovyVersion = '2.4.1'
+
+    shell {
+        jvmArgs = ['-noverify']
+        sourceSetName = 'test'
+        extraClasspath = configurations.runtime.asFileTree
+    }
+}
+
+task generateInfo {
+    mustRunAfter 'processResources'
+    jar.dependsOn it
+    shadowJar.dependsOn it
+    ext.destFile = file('build/resources/main/info.json')
+    doLast {
+        def origin = 'git config --get remote.origin.url'.execute()
+        def branch = 'git rev-parse --abbrev-ref HEAD'.execute()
+        def rev = 'git rev-parse HEAD'.execute()
+        origin.waitFor()
+        branch.waitFor()
+        rev.waitFor()
+        destFile.write(new JsonBuilder([
+                name: project.name,
+                version: project.version,
+                description: project.description,
+                'build-time': new Date().format("yyyy-MM-dd HH:mm:ss"),
+                'build-number': buildNumber(),
+                'vcs-url': origin.text.trim(),
+                'vcs-revision': rev.text.trim(),
+                'vcs-branch': branch.text.trim(),
+                'build-url': ''
+        ]).toPrettyString())
+    }
+}
+
+import javax.xml.parsers.SAXParserFactory
+import org.gradle.logging.StyledTextOutputFactory
+import org.gradle.logging.StyledTextOutput
+import static org.gradle.logging.StyledTextOutput.Style
+task codeCoverage {
+    ext.coverageReport = file('build/reports/jacoco/test/html/index.html')
+    dependsOn jacocoTestReport
+    description 'report the code coverage'
+
+    doLast {
+        def spf = SAXParserFactory.newInstance()
+        spf.setFeature('http://apache.org/xml/features/disallow-doctype-decl', false)
+        spf.setFeature('http://apache.org/xml/features/nonvalidating/load-external-dtd', false)
+        def saxParser = spf.newSAXParser()
+        def slurper = new XmlSlurper(saxParser)
+        def html = slurper.parse(coverageReport)
+        def coverage = html.'**'.grep{ it.@id == 'coveragetable' }.tfoot.tr.td[0][2].text()
+
+        def coverageCi = coverage
+
+        def coverageMovement = ''
+        int coverageAsint = coverage.replaceAll('[^0-9]', '') as Integer
+        int coverageCiAsint = coverageCi.replaceAll('[^0-9]', '') as Integer
+        if (coverageAsint < coverageCiAsint) {
+            coverageMovement = '↓'
+        } else if (coverageAsint > coverageCiAsint) {
+            coverageMovement = '↑'
+        }
+
+        StyledTextOutput out = services.get(StyledTextOutputFactory).create('codeCoverageCheck')
+        def coverageStr = "Code coverage is at $coverage $coverageMovement".center(40)
+        String s = '-' * 40
+        out.println(s)
+        out.withStyle(Style.Info).println(coverageStr)
+        out.println(s)
+    }
 }
 
 task wrapper(type: Wrapper) {
