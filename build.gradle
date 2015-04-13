@@ -39,16 +39,13 @@ targetCompatibility = 1.8
 version = "0.1.${buildNumber()}"
 
 // Project details
-// group = "au.com.ioof.ri"
-// mainClassName = "au.com.ioof.ri.reportingservice.ReportingService"
-// description = "Reporting Service"
+group = "au.com.dius"
+mainClassName = "au.com.dius.service.StencilService"
+description = "Stencil Service"
 
 def configuration = "conf/stencil-service.yml"
 
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-
-// The main class of the application
-mainClassName = 'ac.victor.csvconsumerservice.CSVConsumerServiceApplication'
 
 // Add Gradle OneJarPlugin, see https:github.com/rholder/gradle-one-jar
 buildscript {

@@ -1,7 +1,7 @@
-package ac.victor.csvconsumerservice.utils;
+package au.com.dius.service.utils;
 
-import ac.victor.csvconsumerservice.core.People;
-import ac.victor.csvconsumerservice.core.Person;
+import au.com.dius.service.core.People;
+import au.com.dius.service.core.Person;
 import au.com.bytecode.opencsv.CSVReader;
 
 import java.io.FileNotFoundException;

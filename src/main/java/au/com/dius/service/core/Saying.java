@@ -1,4 +1,4 @@
-package ac.victor.csvconsumerservice.core;
+package au.com.dius.service.core;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;

@@ -1,9 +1,7 @@
-package ac.victor.csvconsumerservice.test;
+package au.com.dius.service.test;
 
 import com.sun.jersey.api.client.ClientResponse;
 import org.junit.Test;
-
-import java.io.IOException;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 

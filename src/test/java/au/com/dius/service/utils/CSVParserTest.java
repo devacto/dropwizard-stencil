@@ -1,6 +1,6 @@
-package ac.victor.csvconsumerservice.utils;
+package au.com.dius.service.utils;
 
-import ac.victor.csvconsumerservice.core.People;
+import au.com.dius.service.core.People;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 import org.junit.Test;

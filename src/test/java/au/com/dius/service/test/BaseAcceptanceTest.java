@@ -1,7 +1,7 @@
-package ac.victor.csvconsumerservice.test;
+package au.com.dius.service.test;
 
-import ac.victor.csvconsumerservice.CSVConsumerServiceApplication;
-import ac.victor.csvconsumerservice.CSVConsumerServiceConfiguration;
+import au.com.dius.service.StencilService;
+import au.com.dius.service.CSVConsumerServiceConfiguration;
 import com.google.common.io.CharStreams;
 import com.google.common.io.Resources;
 import com.sun.jersey.api.client.Client;
@@ -19,7 +19,7 @@ public class BaseAcceptanceTest {
 
     @ClassRule
     public static final DropwizardAppRule<CSVConsumerServiceConfiguration> RULE =
-            new DropwizardAppRule<>(CSVConsumerServiceApplication.class, resourceFilePath("test-config.yml"));
+            new DropwizardAppRule<>(StencilService.class, resourceFilePath("test-config.yml"));
 
     protected WebResource.Builder webResourceBuilder(String path, Object... arguments) {
         Client client = new Client();

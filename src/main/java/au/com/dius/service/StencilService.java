@@ -1,19 +1,19 @@
-package ac.victor.csvconsumerservice;
+package au.com.dius.service;
 
-import ac.victor.csvconsumerservice.core.People;
-import ac.victor.csvconsumerservice.health.TemplateHealthCheck;
-import ac.victor.csvconsumerservice.resources.CSVConsumerServiceResource;
-import ac.victor.csvconsumerservice.resources.PeopleResource;
-import ac.victor.csvconsumerservice.utils.CSVParser;
+import au.com.dius.service.core.People;
+import au.com.dius.service.health.TemplateHealthCheck;
+import au.com.dius.service.resources.CSVConsumerServiceResource;
+import au.com.dius.service.resources.PeopleResource;
+import au.com.dius.service.utils.CSVParser;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
-public class CSVConsumerServiceApplication extends Application<CSVConsumerServiceConfiguration> {
+public class StencilService extends Application<CSVConsumerServiceConfiguration> {
 
     @Override
     public String getName() {
-        return "AIA Consumer Service Application";
+        return "Stencil Service";
     }
 
     @Override
@@ -37,7 +37,7 @@ public class CSVConsumerServiceApplication extends Application<CSVConsumerServic
     }
 
     public static void main(String[] args) throws Exception {
-        new CSVConsumerServiceApplication().run(args);
+        new StencilService().run(args);
     }
 
 }

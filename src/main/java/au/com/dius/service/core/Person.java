@@ -1,4 +1,4 @@
-package ac.victor.csvconsumerservice.core;
+package au.com.dius.service.core;
 
 public class Person {
 

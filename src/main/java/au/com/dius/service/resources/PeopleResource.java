@@ -1,7 +1,7 @@
-package ac.victor.csvconsumerservice.resources;
+package au.com.dius.service.resources;
 
-import ac.victor.csvconsumerservice.core.People;
-import ac.victor.csvconsumerservice.core.Person;
+import au.com.dius.service.core.People;
+import au.com.dius.service.core.Person;
 import com.codahale.metrics.annotation.Timed;
 import io.dropwizard.hibernate.UnitOfWork;
 
@@ -10,7 +10,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 @Path("/people")
 @Produces(MediaType.APPLICATION_JSON)

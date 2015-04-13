@@ -1,4 +1,4 @@
-package ac.victor.csvconsumerservice.health;
+package au.com.dius.service.health;
 
 import com.codahale.metrics.health.HealthCheck;
 

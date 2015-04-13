@@ -1,6 +1,6 @@
-package ac.victor.csvconsumerservice.resources;
+package au.com.dius.service.resources;
 
-import ac.victor.csvconsumerservice.core.Saying;
+import au.com.dius.service.core.Saying;
 import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Optional;
 
