@@ -1,15 +1,14 @@
-package au.com.dius.stencilservice;
+package au.com.dius.stencilservice
 
-import au.com.dius.stencilservice.health.TemplateHealthCheck;
+import au.com.dius.stencilservice.health.TemplateHealthCheck
 import au.com.dius.stencilservice.resources.StencilServiceResource
-import groovy.util.logging.Slf4j;
-import io.dropwizard.Application;
-import io.dropwizard.setup.Bootstrap;
-import io.dropwizard.setup.Environment;
+import groovy.util.logging.Slf4j
+import io.dropwizard.Application
+import io.dropwizard.setup.Bootstrap
+import io.dropwizard.setup.Environment
 
 @Slf4j
 class StencilService extends Application<StencilServiceConfiguration> {
-
     final String name = 'Stencil Service'
 
     @Override
@@ -19,14 +18,14 @@ class StencilService extends Application<StencilServiceConfiguration> {
 
     @Override
     void run(StencilServiceConfiguration configuration, Environment environment) throws Exception {
-        final StencilServiceResource resource = new StencilServiceResource(configuration.getTemplate(), configuration.getDefaultname());
-        final TemplateHealthCheck healthCheck = new TemplateHealthCheck(configuration.getTemplate());
-        environment.healthChecks().register("templateHealthCheck", healthCheck);
-        environment.jersey().register(resource);
+        StencilServiceResource resource = new StencilServiceResource(configuration.template,
+                configuration.defaultname)
+        TemplateHealthCheck healthCheck = new TemplateHealthCheck(configuration.template)
+        environment.healthChecks().register('templateHealthCheck', healthCheck)
+        environment.jersey().register(resource)
     }
 
     static void main(String[] args) throws Exception {
-        new StencilService().run(args);
+        new StencilService().run(args)
     }
-    
 }
