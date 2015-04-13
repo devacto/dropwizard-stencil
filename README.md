@@ -33,6 +33,7 @@ Other functionalities such as PactJVM, Retrofit, RxJava, Hibernate, Flyway, Mong
 ##### To run the webservice
 
 `./gradlew installApp`
+
 `./build/install/dropwizard-stencil/bin/dropwizard-stencil server conf/stencil-service.yml`
 
 ### License
