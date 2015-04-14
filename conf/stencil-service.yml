@@ -1,6 +1,5 @@
 template: Hello, %s!
-
-defaultname: Stranger
+defaultName: Stranger
 
 server:
   applicationConnectors:
@@ -12,6 +11,6 @@ server:
 
 logging:
   loggers:
-    ac.victor.csvconsumerservice: DEBUG
+    au.com.dius.stencilservice: DEBUG
   appenders:
     - type: console

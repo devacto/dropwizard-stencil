@@ -55,19 +55,16 @@ repositories {
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.4.1:indy'
     compile "io.dropwizard:dropwizard-core:${dropwizardVersion}"
-    compile "io.dropwizard:dropwizard-hibernate:${dropwizardVersion}"
-    compile 'com.hubspot.dropwizard:dropwizard-guice:0.7.2'
     compile "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
     compile "com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:${jacksonVersion}"
     compile "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:${jacksonVersion}"
     compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:${jacksonVersion}"
-    compile 'org.ostermiller:utils:1.07.00'
+    compile 'com.sun.jersey:jersey-server:1.19'
     compile 'com.sun.jersey:jersey-client:1.19'
 
     testCompile "io.dropwizard:dropwizard-testing:${dropwizardVersion}"
     testCompile "junit:junit:4.11"
     testCompile "org.mockito:mockito-core:1.9.5"
-    testCompile "au.com.dius:pact-jvm-consumer-groovy_2.10:${pactJvmVersion}"
     testCompile 'org.hamcrest:hamcrest-all:1.3'
     testCompile 'com.cyrusinnovation:mockito-groovy-support:1.3'
 }

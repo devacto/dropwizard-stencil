@@ -1,11 +1,12 @@
 package au.com.dius.stencilservice.core
 
-import org.hibernate.validator.constraints.Length
+import com.fasterxml.jackson.annotation.JsonProperty
 
 class Saying {
+    @JsonProperty
     private final long id
 
-    @Length(max = 3)
+    @JsonProperty
     private final String content
 
     Saying(long id, String content) {

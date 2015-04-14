@@ -13,13 +13,13 @@ import java.util.concurrent.atomic.AtomicLong
 
 @Path('hello')
 @Produces(MediaType.APPLICATION_JSON)
-class StencilServiceResource {
+class HelloResource {
     private final String template
     private final String defaultName
 
     private final AtomicLong counter
 
-    StencilServiceResource(String template, String defaultName) {
+    HelloResource(String template, String defaultName) {
         this.template = template
         this.defaultName = defaultName
         this.counter = new AtomicLong()

@@ -1,4 +1,4 @@
-package au.com.dius.stencilservice.test
+package au.com.dius.stencilservice.test.acceptance
 
 import au.com.dius.stencilservice.StencilService
 import au.com.dius.stencilservice.StencilServiceConfiguration
@@ -14,7 +14,7 @@ class BaseAcceptanceTest {
 
     @ClassRule
     public static final DropwizardAppRule<StencilServiceConfiguration> RULE =
-            new DropwizardAppRule<>(StencilService.class, resourceFilePath('test-config.yml'))
+            new DropwizardAppRule<>(StencilService, resourceFilePath('test-config.yml'))
 
     protected WebResource.Builder webResourceBuilder(String path, Object... arguments) {
         Client client = new Client()
